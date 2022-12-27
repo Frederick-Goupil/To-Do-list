@@ -1,7 +1,8 @@
 
 document.getElementById("submit").onclick = function() {
-    var text = document.getElementById("input").ariaValueNow;
-    var li = "<li>" + String(text) + "</li>";
-    console.log(text + li)
-    document.getElementById("list").appendChild(li);
+    var node = document.createElement("Li");
+    var task = document.getElementById("input").value;
+    var tasknode = document.createTextNode(task);
+    node.appendChild(tasknode);
+    document.getElementById("list").appendChild(node);
 }
