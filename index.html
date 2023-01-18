@@ -9,9 +9,42 @@
 <body>
     <h1>To Do list</h1>
     <h3>Enter your tasks here :</h3>
-    <input type="text" id="input" onfocus="this.value=''" value="Enter task here!">
-    <input type="button" id="submit" value="submit">
-    <script src="js/main.js"></script>
-    <ul id="list"></ul>
+    <section>
+   
+        <form action="#" method="post">
+          <div>
+            <input type="text" name="newitem" id="newitem" placeholder="new item" />
+            <input type="submit" value="Add" />
+          </div>
+        </form>
+         <ul id="todolist"></ul>
+      </section>
+      
+    <script>
+    (function(){
+    
+      var todo = document.querySelector( '#todolist' ),
+          form = document.querySelector( 'form' ),
+          field = document.querySelector( '#newitem' );
+        
+      form.addEventListener( 'submit', function( ev ) {
+        var text = field.value;
+        if ( text !== '' ) {
+          todo.innerHTML += '<li> <button onclick="Delete(this);">Done</button> ' + text + '</li>';
+          field.value = '';
+          //field.focus();
+        }
+        ev.preventDefault();
+      }, false);
+    
+    
+    
+    })();
+      function Delete(currentEl){
+      currentEl.parentNode.parentNode.removeChild(currentEl.parentNode);
+      }
+    </script>
+    </body>
+    </html>
 </body>
 </html>
